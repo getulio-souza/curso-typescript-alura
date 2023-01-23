@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/js",
+        "target": "ES6" 
+    }, 
+    "include": [
+        //os simbolos abaixo significam que queremos que o ts inclua toda subpasta e qualquer arquivo que estiver localizado nelas para realizar a conversão par javascript
+        "app/**/*"
+    ]
+}
