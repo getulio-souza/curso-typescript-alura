@@ -1,28 +1,30 @@
 export class Negociacao {
-    #data;
-    #quantidade;
-    #valor;
+    private _data: Date;
+    private _quantidade: number;
+    private _valor: number;
 
     //esses valores são passados para dentro de um construtor
 
-    constructor(data, quantidade, valor) {
-        this.#data = data;
-        this.#quantidade = quantidade;
-        this.#valor = valor;
+    constructor(data: Date, quantidade: number, valor: number) {
+        this._data = data;
+        this._quantidade = quantidade;
+        this._valor = valor;
     }
 
-    //para que tenhamos acesso aos atributos privados, podemos usar geters para acessá-los seguindo a lógica abaixo 
-    get data(){
-        return this.#data;
+    get data(): Date {
+        return this.data;
     }
 
-    get quantidade() {
-        return this.#quantidade;
+    get quantidade(): Number {
+        return this.quantidade;
     }
 
-    //para retornar o volume 
-    get volume() {
-        //multiplicamos a quantidade pelo valor para termos o volume 
-        return this.#quantidade * this.#valor;
+    get valor(): Number{
+        return this.valor;
+    }
+
+    get volume(): Number{
+        return this._valor * this._quantidade;
     }
 }
+
