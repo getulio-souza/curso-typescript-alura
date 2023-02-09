@@ -1,14 +1,21 @@
 import { Negociacao } from "../models/negociacao.js";
+import { Negociacoes } from "../models/negociacoes.js";
 export class negociacaoController {
     //o constuctor está sendo inicializado
     // com o auxilio do document.querySelector do javascript, estamos pegando os inputs pelos IDs
     constructor() {
+        this.negociacoes = new Negociacoes();
         this.inputData = document.querySelector("#data");
         this.inputQuantidade = document.querySelector("#quantidade");
         this.inputValor = document.querySelector("#valor");
     }
     adicionar() {
+        //criamos uma negociacao e armazenamos o valor dela dentro da variavel 'negociacao'
         const negociacao = this.criarNegociacao();
+        //depois de criada a negociacao, adicionamos ela dentro da lista 'negociacoes'
+        this.negociacoes.adiciona(negociacao);
+        console.log(this.negociacoes.lista());
+        this.limparFormulario();
         //criamos uma expressão regular que será responsável por substituir os hifens por virgulas para separar ano, mês e dia
         // const exp = /-/g;
         // //usamos o método replace para fazer a substituição de hifen (que vem como padrão) por vírgula e passamos o exp como primeiro parametro e o que queremos substituir como segundo parametro
@@ -20,7 +27,6 @@ export class negociacaoController {
         // //agora passamos as variáveis criadas acima como parametro do 'New Negociacao'
         // const negociacao = new Negociacao(date, quantidade, valor);
         // console.log(negociacao);
-        this.limparFormulario();
     }
     //podemos mover o código acima para dentro de um método e atribuir um tipo para o retorno dele 
     criarNegociacao() {
