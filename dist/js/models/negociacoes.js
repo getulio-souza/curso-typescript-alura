@@ -10,7 +10,10 @@ export class Negociacoes {
         this.negociacoes.push(negociacao);
     }
     //vamos retornar a lista que será rendenizada na tela 
+    // o read only array retorna somente uma lista do tipo leitura 
     lista() {
+        //podemos usar o spread operador para pegar cada item dessa lista e colocá-lo dentro de uma nova lista
+        // return [...this.negociacoes];
         return this.negociacoes;
     }
 }
