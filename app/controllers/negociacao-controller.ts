@@ -1,6 +1,6 @@
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
-import { NegociacoesView } from './../views/negociacoes-view.js';
+import { NegociacoesView } from '../views/negociacoes-view.js';
 
 export class negociacaoController {
     private inputData: HTMLInputElement;
@@ -8,7 +8,7 @@ export class negociacaoController {
     private inputValor: HTMLInputElement;
     private negociacoes: Negociacoes = new Negociacoes();
     //vamos criar uma nova propriedade para rendenizar o elemento do DOM. Ele é o nosso ID da div que criamos na 'negociacoes view'
-    private negociacoesView = new NegociacoesView('#negociacoesView');
+    private negociacoesView = new NegociacoesView('#tabela');
 
  
     //o constuctor está sendo inicializado
@@ -20,7 +20,6 @@ export class negociacaoController {
         this.inputValor = document.querySelector("#valor");
         //agora carregamos a tabela (mesmo que esteja vazia)
         //assim que a página é criada, chamamos o método update
-        this.negociacoesView.template();
         this.negociacoesView.update();
     }
 

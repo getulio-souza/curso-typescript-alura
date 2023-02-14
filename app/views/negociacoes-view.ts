@@ -4,7 +4,7 @@ export class NegociacoesView {
     private elemento: HTMLElement;
     //vamos criar um seletor css
     constructor(seletor: string) {
-        //aqui pegar a propriedade seletor e carregamos ela na propriedade elemento que chama o html element
+        //aqui pegamos a propriedade seletor e carregamos ela na propriedade elemento que chama o html element
         this.elemento = document.querySelector(seletor);
     }
 
