@@ -6,13 +6,19 @@ export class Negociacao {
     //esses valores são passados para dentro de um construtor
 
     constructor(
-        public readonly data: Date, 
+        private _data: Date, 
         public readonly quantidade: number, 
         private readonly valor: number
         ) {}
 
     get volume(): Number{
         return this.valor * this.quantidade;
+    }
+
+    get data(): Date{
+        //o parametro que foi colocado no new date não modifica a data que está armazenada dentro da modelagem de negociação
+        const data = new Date(this._data.getTime());
+        return this._data;
     }
 }
 
