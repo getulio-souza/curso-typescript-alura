@@ -1,3 +1,4 @@
+import { NegociacoesView } from './../views/negociacoes-view.js';
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 
@@ -6,14 +7,20 @@ export class negociacaoController {
     private inputQuantidade: HTMLInputElement;
     private inputValor: HTMLInputElement;
     private negociacoes: Negociacoes = new Negociacoes();
+    //vamos criar uma nova propriedade para rendenizar o elemento do DOM. Ele é o nosso ID da div que criamos na 'negociacoes view'
+    private negociacoesView = new NegociacoesView('#negociacoesView');
 
 
     //o constuctor está sendo inicializado
     // com o auxilio do document.querySelector do javascript, estamos pegando os inputs pelos IDs
     constructor() {
+        //capturamos os valores dos inputs através do document querselector do javascript 
         this.inputData = document.querySelector("#data");
         this.inputQuantidade = document.querySelector("#quantidade");
         this.inputValor = document.querySelector("#valor");
+        //agora carregamos a tabela (mesmo que esteja vazia)
+        //assim que a página é criada, chamamos o método update
+        this.negociacoesView.update();
     }
 
     adicionar(): void {
@@ -22,7 +29,6 @@ export class negociacaoController {
         //depois de criada a negociacao, adicionamos ela dentro da lista 'negociacoes'
         this.negociacoes.adiciona(negociacao);
         console.log(this.negociacoes.lista());
-        
         this.limparFormulario();
         //criamos uma expressão regular que será responsável por substituir os hifens por virgulas para separar ano, mês e dia
         // const exp = /-/g;
