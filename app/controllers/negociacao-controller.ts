@@ -8,7 +8,7 @@ export class negociacaoController {
     private inputValor: HTMLInputElement;
     private negociacoes: Negociacoes = new Negociacoes();
     //vamos criar uma nova propriedade para rendenizar o elemento do DOM. Ele é o nosso ID da div que criamos na 'negociacoes view'
-    private negociacoesView = new NegociacoesView('#tabela');
+    private negociacoesView = new NegociacoesView('#negociacoesView');
 
  
     //o constuctor está sendo inicializado
@@ -20,7 +20,7 @@ export class negociacaoController {
         this.inputValor = document.querySelector("#valor");
         //agora carregamos a tabela (mesmo que esteja vazia)
         //assim que a página é criada, chamamos o método update
-        this.negociacoesView.update();
+        this.negociacoesView.update(this.negociacoes);
     }
 
     adicionar(): void {
@@ -28,6 +28,7 @@ export class negociacaoController {
         const negociacao = this.criarNegociacao();
         //depois de criada a negociacao, adicionamos ela dentro da lista 'negociacoes'
         this.negociacoes.adiciona(negociacao);
+        this.negociacoesView.update(this.negociacoes);
         this.limparFormulario();
         //criamos uma expressão regular que será responsável por substituir os hifens por virgulas para separar ano, mês e dia
         // const exp = /-/g;
