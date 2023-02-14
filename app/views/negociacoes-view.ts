@@ -7,9 +7,10 @@ export class NegociacoesView {
     //vamos criar um seletor css
     constructor(seletor: string) {
         //aqui pegamos a propriedade seletor e carregamos ela na propriedade elemento que chama o html element
-        this.elemento = document.querySelector(seletor);
+        this.elemento = document.querySelector(`${seletor}`);
     }
 
+    
     //esse método declara o template da nossa view 
     template (model: Negociacoes): string {
         // o template é um método que é iniciado como tipo string que será a nossa tabela renderizada 
@@ -46,3 +47,6 @@ export class NegociacoesView {
         this.elemento.innerHTML = template;
     }
 }
+
+
+// https://cursos.alura.com.br/forum/topico-meu-template-nao-renderiza-166811
