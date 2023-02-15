@@ -3,7 +3,7 @@ export class NegociacoesView {
     //vamos criar um seletor css
     constructor(seletor) {
         //aqui pegamos a propriedade seletor e carregamos ela na propriedade elemento que chama o html element
-        this.elemento = document.querySelector(`${seletor}`);
+        this.elemento = document.querySelector(seletor);
     }
     //esse método declara o template da nossa view 
     template(model) {
@@ -18,13 +18,16 @@ export class NegociacoesView {
              </tr>
             </thead>
                 <tbody>
+                
                     ${model.lista().map(negociacao => {
             return `
-                        <tr>
-                            <td>?</td>
-                            <td>${negociacao.quantidade}</td>
-                            <td>${negociacao.valor}</td>
-                        </tr> 
+                            <tr>
+                                <td>${new Intl.DateTimeFormat()
+                .format(negociacao.data)} 
+                                </td>
+                                <td>${negociacao.quantidade}</td>
+                                <td>${negociacao.valor}</td>
+                            </tr>
                         `;
         }).join('')}
                 </tbody>
