@@ -1,3 +1,4 @@
+import { MensagemView } from './../views/mensagem-view.js';
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { NegociacoesView } from '../views/negociacoes-view.js';
@@ -9,6 +10,7 @@ export class negociacaoController {
     private negociacoes: Negociacoes = new Negociacoes();
     //vamos criar uma nova propriedade para rendenizar o elemento do DOM. Ele é o nosso ID da div que criamos na 'negociacoes view'
     private negociacoesView = new NegociacoesView('#negociacoesView');
+    private mensagemView = new MensagemView('#mensagemView');
 
  
     //o constuctor está sendo inicializado
@@ -31,6 +33,7 @@ export class negociacaoController {
         this.negociacoes.adiciona(negociacao);
         //agora atualizamos de acordo com o que foi colocado na tabela (os dados do tbody)
         this.negociacoesView.update(this.negociacoes);
+        this.mensagemView.update('Negociação adicionada com sucesso');
         this.limparFormulario();
         //criamos uma expressão regular que será responsável por substituir os hifens por virgulas para separar ano, mês e dia
         // const exp = /-/g;

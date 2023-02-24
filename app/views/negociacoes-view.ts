@@ -10,9 +10,9 @@ export class NegociacoesView {
         this.elemento = document.querySelector(seletor);
     }
 
-    
+
     //esse método declara o template da nossa view 
-    template (model: Negociacoes): string {
+    template(model: Negociacoes): string {
         // o template é um método que é iniciado como tipo string que será a nossa tabela renderizada 
         return `
         <table class="table table-hover table-bordered">
@@ -26,21 +26,21 @@ export class NegociacoesView {
                 <tbody>
                 
                     ${model.lista().map(negociacao => {
-                        return `
+            return `
                             <tr>
                                 <td>${new Intl.DateTimeFormat()
-                                .format(negociacao.data)} 
+                    .format(negociacao.data)} 
                                 </td>
                                 <td>${negociacao.quantidade}</td>
                                 <td>${negociacao.valor}</td>
                             </tr>
                         `;
-                    }).join('')}
+        }).join('')}
                 </tbody>
          </table>
          `;
     }
-    
+
     //vamos criar um método update para atualizar os valores do template 
     // por enquanto ele é void, ou seja, não recebe nenhum valor
     //esse método acessa os elementos do DOM na forma de HTML e atribui para o resultado de template, exibindo-o na tela
